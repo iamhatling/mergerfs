@@ -17,6 +17,7 @@
 #pragma once
 
 #include "branch.hpp"
+#include "config_inodecalc.hpp"
 #include "enum.hpp"
 #include "errno.hpp"
 #include "func_category.hpp"
@@ -102,6 +103,7 @@ public:
   Funcs          func;
   ConfigUINT64   fuse_msg_size;
   ConfigBOOL     ignorepponrename;
+  InodeCalc      inodecalc;
   ConfigBOOL     kernel_cache;
   ConfigBOOL     link_cow;
   ConfigUINT64   minfreespace;

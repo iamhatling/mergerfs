@@ -83,6 +83,7 @@ Config::Config()
   func(),
   fuse_msg_size(FUSE_MAX_MAX_PAGES),
   ignorepponrename(false),
+  inodecalc("hybrid-hash"),
   link_cow(false),
   minfreespace(MINFREESPACE_DEFAULT),
   mount(),
@@ -141,6 +142,7 @@ Config::Config()
   _map["func.utimens"]         = &func.utimens;
   _map["fuse_msg_size"]        = &fuse_msg_size;
   _map["ignorepponrename"]     = &ignorepponrename;
+  _map["inodecalc"]            = &inodecalc;
   _map["kernel_cache"]         = &kernel_cache;
   _map["link_cow"]             = &link_cow;
   _map["minfreespace"]         = &minfreespace;
@@ -389,7 +391,6 @@ Config::set(const std::string &key_,
 
   return set_raw(key_,value_);
 }
-
 
 std::ostream&
 operator<<(std::ostream &os_,

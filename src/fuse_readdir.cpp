@@ -16,7 +16,7 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-#ifdef __linux__
+#if defined __linux__
 # include "fuse_readdir_linux.icpp"
 #else
 # include "fuse_readdir_posix.icpp"

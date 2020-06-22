@@ -16,8 +16,22 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-#if defined __linux__
-# include "fuse_readdir_plus_linux.icpp"
-#else
-# include "fuse_readdir_plus_posix.icpp"
-#endif
+#include "config_inodecalc.hpp"
+#include "fs_inode.hpp"
+
+InodeCalc::InodeCalc(const std::string &s_)
+{
+  fs::inode::set_algo(s_);
+}
+
+std::string
+InodeCalc::to_string(void) const
+{
+  return fs::inode::get_algo();
+}
+
+int
+InodeCalc::from_string(const std::string &s_)
+{
+  return fs::inode::set_algo(s_);
+}

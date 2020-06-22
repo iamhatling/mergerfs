@@ -16,8 +16,16 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-#if defined __linux__
-# include "fuse_readdir_plus_linux.icpp"
-#else
-# include "fuse_readdir_plus_posix.icpp"
-#endif
+#pragma once
+
+#include "tofrom_string.hpp"
+
+class InodeCalc : public ToFromString
+{
+public:
+  InodeCalc(const std::string &);
+
+public:
+  std::string to_string(void) const;
+  int from_string(const std::string &);
+};
